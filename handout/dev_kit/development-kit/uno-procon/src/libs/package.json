@@ -1,0 +1,40 @@
+{
+  "name": "base-node-lib",
+  "version": "1.0.0",
+  "description": "core library bicycle for nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "javascript",
+    "typescript",
+    "session",
+    "request",
+    "..."
+  ],
+  "author": "NIPPON TELEGRAPH AND TELEPHONE EAST CORPORATION",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/bluebird": "^3.5.26",
+    "@types/ioredis": "^4.0.10",
+    "@types/kue": "^0.11.11",
+    "@types/lodash": "^4.14.123",
+    "@types/mongoose": "^5.3.27",
+    "@types/request-promise": "^4.1.43",
+    "@types/signale": "^1.2.1",
+    "@types/validator": "^10.11.0"
+  },
+  "dependencies": {
+    "@types/jsonwebtoken": "^8.3.2",
+    "bluebird": "^3.5.4",
+    "ioredis": "^4.9.0",
+    "kue": "^0.11.6",
+    "mongoose": "^5.5.6",
+    "validator": "^10.11.0"
+  }
+}

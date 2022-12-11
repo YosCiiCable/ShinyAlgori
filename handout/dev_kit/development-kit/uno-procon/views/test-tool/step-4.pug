@@ -1,0 +1,53 @@
+extends ../_layout
+include ./_back-btn
+
+block main
+  .main
+    .content
+      h2= pageTitle
+      p.note.center= "このSTEPではこれまでに実装したプログラムを、実際のディーラープログラムを使用して対戦させます。"
+
+      .test-tool
+        div
+          .horizontal
+            span.number= "1"
+            div
+              p.description= "管理者ツールにアクセスする"
+              p.note
+                a(href="http://localhost:8080/api/v1/admin/web", target="_blank")= "http://localhost:8080/api/v1/admin/web"
+
+        div
+          .horizontal
+            span.number= "2"
+            div
+              p.description= "新しくディーラーを作成する"
+              p.note= "ディラー名、対戦数を入力し、白いワイルドの効果を選択してください。"
+              p.note= "最初は1対戦から始めて、試合が最後まで実施されるか確認してください。"
+              p.note= "1対戦が正常に終了したら、対戦数を増やして動作確認を行います。"
+
+        div
+          .horizontal
+            span.number= "3"
+            div
+              p.description= "作成したプレイヤープログラムを参加させる"
+              p.note= "作成したプレイヤーまたはデモプレイヤーで2プレイヤー以上を参加させてください。"
+              p.note= "デモプレイヤーを使用する場合は以下のコマンドで起動できます。"
+
+              p.note= "Node.js版"
+              .console
+                pre
+                  code.language-bash= `node demo-player/demo-player.js "http://localhost:8080" "{ディーラー名}" "{プレイヤー名}"`
+
+              p.note= "Python版"
+              .console
+                pre
+                  code.language-bash= `python demo-player/demo-player.py "http://localhost:8080" "{ディーラー名}" "{プレイヤー名}"`
+
+        div
+          .horizontal
+            span.number= "3"
+            div
+              p.description= "試合を開始する"
+
+      .btn-wrapper
+        a.btn-link.secondary(href= TEST_TOOL_TOP_URL + "/detail")= "前のSTEPに戻る"

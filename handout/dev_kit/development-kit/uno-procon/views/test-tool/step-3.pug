@@ -1,0 +1,86 @@
+extends ../_layout
+include ./_back-btn
+
+block main
+  .main
+    .content
+      h2= pageTitle
+      p.note.center= "このSTEPでは自身で考えた戦略を実装するフローを紹介しています。"
+      p.note.center= "戦略部分のプログラムは自身で自由に記述してください。"
+
+      .test-tool
+        div
+          .horizontal
+            span.number= "1"
+            div
+              p.description= "自分のIDと自分の手札を管理する"
+          .console.program-player-js
+            pre
+              code.language-javascript= codes.MANAGE_ID_AND_CARDS.source.trim()
+
+        div
+          .horizontal
+            span.number= "2"
+            div
+              p.description= "自分の手番の時に出すカードを選出する関数を作成する"
+              p.note= "選出するロジックは自由に記述してください。"
+          .console.program-player-js
+            pre
+              code.language-javascript= codes.CREATE_CARD_SELECTING_FUNCTION.source.trim()
+
+        div
+          .horizontal
+            span.number= "3"
+            div
+              p.description= "自分の手番の時にカードを引くイベントを呼び出す実装をする"
+              p.note= "前のプレイヤーの出したカードの効果で引く場合や、自分の手札に出せるカードがない時にカードを引きます。"
+              p.note.strong= "引いたカードを場に出すことができる時、カードを捨てるかは自身で決定します。"
+          .console.program-player-js
+            pre
+              code.language-javascript= codes.EXECUTE_CARD_SELECTING_FUNCTION.source.trim()
+
+        div
+          .horizontal
+            span.number= "4"
+            div
+              p.description= "色の変更を行う実装をする"
+          .console.program-player-js
+            pre
+              code.language-javascript= codes.CREATE_CHANGE_COLOR_FUNCTION.source.trim()
+
+        div
+          .horizontal
+            span.number= "5"
+            div
+              p.description= "チャレンジを行う実装をする"
+          .console.program-player-js
+            pre
+              code.language-javascript= codes.CREATE_CHALLENGE_FUNCTION.source.trim()
+
+        div
+          .horizontal
+            span.number= "6"
+            div
+              p.description= "スペシャルロジックの実装をする"
+              p.note= "選出するロジックは自由に記述してください。"
+              p.note= "発動するタイミングは自由です。どのプレイヤーの手番のときでも発動できます。"
+              p.note
+                span= "※スペシャルロジックが頻発すると、ゲーム進行に著しい遅れが生じる可能性があるため、"
+                span= "1対戦の中で10回までしか発動しないようにディーラープログラムによって制御されています。"
+              p.note= "※10回以上発動してもペナルティにはなりません。"
+
+        div
+          .horizontal
+            span.number= "7"
+            div
+              p.description= "他のイベント受信時に必要なロジックがある場合、自身で自由に実装する"
+
+        div
+          .horizontal
+            span.number= "8"
+            div
+              p.description= "次のSTEPに進みます"
+
+      .btn-wrapper
+        a.btn-link.secondary(href= TEST_TOOL_TOP_URL + '/dealer-to-player')= "前のSTEPに戻る"
+        a.btn-link.primary(href= TEST_TOOL_TOP_URL + '/game')= "次のSTEPに進む"

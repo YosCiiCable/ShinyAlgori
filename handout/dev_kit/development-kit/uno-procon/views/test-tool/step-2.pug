@@ -1,0 +1,59 @@
+extends ../_layout
+include ./_back-btn
+
+block main
+  .main
+    .content
+      h2= pageTitle
+      p.note.center= "このSTEPではディーラーからプレイヤーへのデータ受信が行えるように実装していきます。"
+
+      .test-tool
+        div
+          .horizontal
+            span.number= "1"
+            div
+              p.description= "ディーラーからのデータ受信部分を作成する"
+          .console.program-player-js
+            pre
+              code.language-javascript= codes.CREATE_RECEIVE_DATA_FUNCTION.source.trim()
+
+        div
+          .horizontal
+            span.number= "2"
+            div
+              p.description= "各イベントのデータを受信しできるか確認する"
+              p.note= "下記のイベント実行は通信できることを確認するための機能であるため、固定値を送信しています。"
+              p.note= "受信時の処理が行われているか確認しましょう。上記コードを実装した場合コンソールにログが表示されます。"
+          .console
+            pre
+              code.language-bash= codes.SEND_DATA_TO_PLAYER.commands.join('\n')
+          div
+            each event, i in events
+              hr
+              each eventData, j in event.list
+                div
+                  .horizontal.section
+                    span.event= event.name + (eventData.type ? (' - ' + eventData.type) : '')
+                    button(type="submit", onclick=`javascript:sendDealerToPlayer("${event.name}", "${j}")`).small= "submit"
+                  .console
+                    - const text = JSON.stringify(eventData.data, null, "\t")
+                    pre
+                      code.language-json= text
+
+        div
+          .horizontal
+            span.number= "3"
+            div
+              p.description= "他のイベントの受信部分も同様に実装する"
+
+        div
+          .horizontal
+            span.number= "4"
+            div
+              p.description= "次のSTEPに進みます"
+
+      .btn-wrapper
+        a.btn-link.secondary(href= TEST_TOOL_TOP_URL + '/player-to-dealer')= "前のSTEPに戻る"
+        a.btn-link.primary(href= TEST_TOOL_TOP_URL + '/detail')= "次のSTEPに進む"
+
+  script(src="/assets/script/test-tool-step-2.js")
